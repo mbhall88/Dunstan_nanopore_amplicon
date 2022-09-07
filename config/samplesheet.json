@@ -1,0 +1,351 @@
+{
+    "primer_pools": {
+        "PCR": {
+            "Pool1": [
+                "eis",
+                "embB",
+                "rrs",
+                "rv0678",
+                "fabG1"
+            ],
+            "Pool2": [
+                "gryA",
+                "rpoB",
+                "ethA",
+                "rplC",
+                "katG"
+            ],
+            "Pool3": [
+                "gidB",
+                "inhA",
+                "rrl",
+                "pncA",
+                "rpsL",
+                "tlyA"
+            ],
+            "Pool16": [
+                "eis",
+                "embB",
+                "rrs",
+                "rv0678",
+                "fabG1",
+                "gryA",
+                "rpoB",
+                "ethA",
+                "rplC",
+                "katG",
+                "gidB",
+                "inhA",
+                "rrl",
+                "pncA",
+                "rpsL",
+                "tlyA"
+            ]
+        },
+        "RPA": {
+            "Pool1": [
+                "rrl",
+                "embB",
+                "ethA",
+                "eis",
+                "eplC"
+            ],
+            "Pool2": [
+                "katG",
+                "gidB",
+                "inhA",
+                "rv0678",
+                "rpoB"
+            ],
+            "Pool3": [
+                "rpsL",
+                "tlyA",
+                "pncA",
+                "rrs",
+                "fabG1",
+                "gyrA"
+            ]
+        }
+    },
+    "runs": {
+        "20220525": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Sunrita_20220525_Amplicons",
+            "barcode_kit": [
+                "EXP-NBD104"
+            ],
+            "samples": {
+                "Pool1": {
+                    "barcode": "NB09",
+                    "strategy": "PCR",
+                    "primers": "Pool1"
+                },
+                "Pool2": {
+                    "barcode": "NB10",
+                    "strategy": "PCR",
+                    "primers": "Pool2"
+                },
+                "Pool3": {
+                    "barcode": "NB11",
+                    "strategy": "PCR",
+                    "primers": "Pool3"
+                },
+                "Pool16": {
+                    "barcode": "NB12",
+                    "strategy": "PCR",
+                    "primers": "Pool16"
+                }
+            }
+        },
+        "20220819": {
+            "run_dir": "",
+            "barcode_kit": [
+                "EXP-NBD114"
+            ],
+            "samples": {
+                "Pool1": {
+                    "barcode": "NB22",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2": {
+                    "barcode": "NB23",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3": {
+                    "barcode": "NB24",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                }
+            }
+        },
+        "20220829": {
+            "run_dir": "",
+            "barcode_kit": [
+                "EXP-NBD104",
+                "EXP-NBD114"
+            ],
+            "samples": {
+                "Pool1-21121085-pcr": {
+                    "barcode": "NB01",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-21121085-pcr": {
+                    "barcode": "NB02",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-21121085-pcr": {
+                    "barcode": "NB03",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-21121085-rpa": {
+                    "barcode": "NB04",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-21121085-rpa": {
+                    "barcode": "NB05",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-21121085-rpa": {
+                    "barcode": "NB06",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                },
+                "Pool1-21258497-pcr": {
+                    "barcode": "NB07",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-21258497-pcr": {
+                    "barcode": "NB08",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-21258497-pcr": {
+                    "barcode": "NB09",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-21258497-rpa": {
+                    "barcode": "NB10",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-21258497-rpa": {
+                    "barcode": "NB11",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-21258497-rpa": {
+                    "barcode": "NB12",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                },
+                "Pool1-21052747-pcr": {
+                    "barcode": "NB13",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-21052747-pcr": {
+                    "barcode": "NB14",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-21052747-pcr": {
+                    "barcode": "NB15",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-21052747-rpa": {
+                    "barcode": "NB16",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-21052747-rpa": {
+                    "barcode": "NB17",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-21052747-rpa": {
+                    "barcode": "NB18",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                },
+                "Pool1-21092267-pcr": {
+                    "barcode": "NB19",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-21092267-pcr": {
+                    "barcode": "NB20",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-21092267-pcr": {
+                    "barcode": "NB21",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-21092267-rpa": {
+                    "barcode": "NB22",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-21092267-rpa": {
+                    "barcode": "NB23",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-21092267-rpa": {
+                    "barcode": "NB24",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                }
+            }
+        },
+        "20220831": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Sunrita_20220831_MDR-XDR",
+            "barcode_kit": [
+                "EXP-NBD104",
+                "EXP-NBD114"
+            ],
+            "samples": {
+                "Pool1-20395165-pcr": {
+                    "barcode": "NB01",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-20395165-pcr": {
+                    "barcode": "NB02",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-20395165-pcr": {
+                    "barcode": "NB03",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-20395165-rpa": {
+                    "barcode": "NB04",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-20395165-rpa": {
+                    "barcode": "NB05",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-20395165-rpa": {
+                    "barcode": "NB06",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                },
+                "Pool1-21019114-pcr": {
+                    "barcode": "NB07",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-21019114-pcr": {
+                    "barcode": "NB08",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-21019114-pcr": {
+                    "barcode": "NB09",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-21019114-rpa": {
+                    "barcode": "NB10",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-21019114-rpa": {
+                    "barcode": "NB11",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-21019114-rpa": {
+                    "barcode": "NB12",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                },
+                "Pool1-15139673-pcr": {
+                    "barcode": "NB13",
+                    "primers": "Pool1",
+                    "strategy": "PCR"
+                },
+                "Pool2-15139673-pcr": {
+                    "barcode": "NB14",
+                    "primers": "Pool2",
+                    "strategy": "PCR"
+                },
+                "Pool3-15139673-pcr": {
+                    "barcode": "NB15",
+                    "primers": "Pool3",
+                    "strategy": "PCR"
+                },
+                "Pool1-15139673-rpa": {
+                    "barcode": "NB16",
+                    "primers": "Pool1",
+                    "strategy": "RPA"
+                },
+                "Pool2-15139673-rpa": {
+                    "barcode": "NB17",
+                    "primers": "Pool2",
+                    "strategy": "RPA"
+                },
+                "Pool3-15139673-rpa": {
+                    "barcode": "NB18",
+                    "primers": "Pool3",
+                    "strategy": "RPA"
+                }
+            }
+        }
+    }
+}
