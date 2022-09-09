@@ -33,7 +33,7 @@ for run, info in RUNS.items():
     run_dir = info["run_dir"]
     if not run_dir:
         continue
-    for sample in RUNS["samples"]:
+    for sample in info["samples"]:
         p = RESULTS / f"basecalls/guppy_v{GUPPY_VERSION}/{run}/{sample}.fq.gz"
         target_files.add(p)
 
