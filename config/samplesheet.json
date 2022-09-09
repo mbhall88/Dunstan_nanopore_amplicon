@@ -120,7 +120,7 @@
             }
         },
         "20220829": {
-            "run_dir": "",
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Sunrita-RPA-PCR-Pool_20220829",
             "barcode_kit": [
                 "EXP-NBD104",
                 "EXP-NBD114"

@@ -1,0 +1,49 @@
+import json
+from pathlib import Path
+
+
+# =====================================
+# Workflow config items
+configfile: "config/config.yaml"
+
+
+WORKFLOW = Path("workflow").resolve()
+RULES = WORKFLOW / "rules"
+ENVS = WORKFLOW / "envs"
+SCRIPTS = WORKFLOW / "scripts"
+RESULTS = Path("results").resolve()
+PLOTS = RESULTS / "plots"
+TABLES = RESULTS / "tables"
+CAPTIONS = WORKFLOW / "report"
+RESOURCES = Path("resources").resolve()
+LOGS = Path("logs/rules").resolve()
+CONTAINERS = config["containers"]
+GB = 1_024
+GUPPY_VERSION = CONTAINERS["guppy"].split(":")[-1]
+
+# =====================================
+
+with open(config["samplesheet"]) as fp:
+    sample_data = json.load(fp)
+
+RUNS = sample_data["runs"]
+# =====================================
+target_files = set()
+for run, info in RUNS.items():
+    run_dir = info["run_dir"]
+    if not run_dir:
+        continue
+    for sample in RUNS["samples"]:
+        p = RESULTS / f"basecalls/guppy_v{GUPPY_VERSION}/{run}/{sample}.fq.gz"
+        target_files.add(p)
+
+
+# =====================================
+rule all:
+    input:
+        target_files,
+
+
+# =====================================
+include: RULES / "common.smk"
+include: RULES / "basecall.smk"
