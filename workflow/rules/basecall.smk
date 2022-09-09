@@ -38,12 +38,15 @@ rule merge_fastq:
         fastq=RESULTS / f"demux/guppy_v{GUPPY_VERSION}/{{run}}/{{sample}}.fq.gz",
     log:
         LOGS / "merge_fastq/{run}/{sample}.log",
+    resources:
+        mem_mb=GB,
+        time="30m",
     params:
-        opt="--remove_duplicates --min_len 100 --min_qual 7 -v",
+        rgx=r".*\.f(ast)?q(\.gz)?$",
         barcode_dir=get_barcode_dir,
     container:
         CONTAINERS["rs_utils"]
     resources:
         time="30m",
     shell:
-        "fd -X cat \; '.*\.f(ast)?q(\.gz)?$' {input.fastq_dir}/pass/{params.barcode_dir} > {output.fastq} 2> {log}"
+        "fd -X cat \; {params.rgx:q} {input.fastq_dir}/pass/{params.barcode_dir} > {output.fastq} 2> {log}"
