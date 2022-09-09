@@ -34,7 +34,7 @@ for run, info in RUNS.items():
     if not run_dir:
         continue
     for sample in info["samples"]:
-        p = RESULTS / f"basecalls/guppy_v{GUPPY_VERSION}/{run}/{sample}.fq.gz"
+        p = RESULTS / f"demux/guppy_v{GUPPY_VERSION}/{run}/{sample}.fq.gz"
         target_files.add(p)
 
 
