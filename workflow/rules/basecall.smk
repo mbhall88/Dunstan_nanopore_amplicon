@@ -35,7 +35,7 @@ rule merge_fastq:
     input:
         fastq_dir=rules.basecall.output.save_path,
     output:
-        fastq=RESULTS / f"basecalls/guppy_v{GUPPY_VERSION}/{{run}}/{{sample}}.fq.gz",
+        fastq=RESULTS / f"demux/guppy_v{GUPPY_VERSION}/{{run}}/{{sample}}.fq.gz",
     log:
         LOGS / "merge_fastq/{run}/{sample}.log",
     params:
