@@ -17,6 +17,7 @@ rule basecall:
                 "--recursive",
                 "--calib_detect",
                 "--device cuda:all:100%",
+                "--compress_fastq",
             ]
         ),
         barcode_kits=get_barcode_kits,
@@ -46,7 +47,5 @@ rule merge_fastq:
         barcode_dir=get_barcode_dir,
     container:
         CONTAINERS["rs_utils"]
-    resources:
-        time="30m",
     shell:
         "fd -X cat \; {params.rgx:q} {input.fastq_dir}/pass/{params.barcode_dir} > {output.fastq} 2> {log}"
