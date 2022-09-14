@@ -23,7 +23,7 @@ rule basecall:
     resources:
         mem_mb=6 * GB,
         time="1d",
-        partition="gpu-a100",
+        partition="gpgpu",
         slurm="gres=gpu:2 qos=gpgpumdhs",
     container:
         CONTAINERS["guppy"]

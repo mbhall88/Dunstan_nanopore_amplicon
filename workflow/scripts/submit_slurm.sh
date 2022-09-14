@@ -9,12 +9,13 @@ if [[ ! -d "$LOG_DIR" ]]; then
     exit 1
 fi
 
-MEMORY="2G"
+MEMORY="1G"
 TIME="3d"
 THREADS=2
 PROFILE="slurm.punim1637"
-SINGULARITY_ARGS="\'--nv\'"
-CMD="snakemake --profile $PROFILE --rerun-incomplete --local-cores $THREADS $* --singularity-args $SINGULARITY_ARGS"
+BINDS="/data/scratch/projects/punim1637/"
+SINGULARITY_ARGS="--nv -B $BINDS"
+CMD="snakemake --profile $PROFILE --rerun-incomplete --local-cores $THREADS $* --singularity-args '$SINGULARITY_ARGS'"
 
 ssubmit -t "$TIME" -m "$MEMORY" -o "$LOG_DIR"/"$JOB_NAME".o \
     -e "$LOG_DIR"/"$JOB_NAME".e "$JOB_NAME" "$CMD" -- -c "$THREADS"
