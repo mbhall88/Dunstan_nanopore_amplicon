@@ -52,5 +52,5 @@ def infer_reference(wildcards):
         method = "pcr"
     else:
         run = exp.split("_")[0]
-        method = RUNS[run]["samples"]["Pool1"]["strategy"]
+        method = RUNS[run]["samples"]["Pool1"]["strategy"].lower()
     return config["references"][method]
