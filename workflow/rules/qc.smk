@@ -25,3 +25,18 @@ rule qc_plot:
         CONTAINERS["nanoplot"]
     shell:
         "NanoPlot -t {threads} {params.opts} --fastq_rich {input.fastq} -o {output.outdir} &> {log}"
+
+
+rule aggregate_pools:
+    input:
+        fastqs=infer_fastqs_to_aggregate,
+    output:
+        fastq=RESULTS / "combined_reads/{experiment}.fq.gz",
+    log:
+        LOGS / "aggregate_pools/{experiment}.log",
+    resources:
+        time="20m",
+    container:
+        CONTAINERS["rs_utils"]
+    shell:
+        "cat {input.fastqs} > {output.fastq} 2> {log}"

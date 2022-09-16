@@ -29,6 +29,7 @@ with open(config["samplesheet"]) as fp:
 RUNS = sample_data["runs"]
 # =====================================
 target_files = set()
+EXPERIMENTS = set()
 for run, info in RUNS.items():
     run_dir = info["run_dir"]
     if not run_dir:
@@ -36,6 +37,14 @@ for run, info in RUNS.items():
     for sample in info["samples"]:
         p = RESULTS / f"QC/plots/{run}/{sample}"
         target_files.add(p)
+        if "-" in sample:
+            uid = sample.split("-", maxsplit=1)[1]
+            exp = f"{run}_{uid}"
+        elif sample == "Pool16":
+            exp = f"{run}_{sample}"
+        else:
+            exp = f"{run}_{uid}"
+        target_files.add(RESULTS / f"combined_reads/{exp}.fq.gz")
 
 
 # =====================================
@@ -47,3 +56,4 @@ rule all:
 # =====================================
 include: RULES / "common.smk"
 include: RULES / "basecall.smk"
+include: RULES / "qc.smk"
