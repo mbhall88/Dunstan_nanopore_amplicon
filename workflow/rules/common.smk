@@ -42,3 +42,15 @@ def infer_fastqs_to_aggregate(wildcards):
         fastqs.append(RESULTS / f"demux/guppy_v{GUPPY_VERSION}/{run}/{s}.fq.gz")
 
     return fastqs
+
+
+def infer_reference(wildcards):
+    exp = wildcards.experiment
+    if "rpa" in exp:
+        method = "rpa"
+    elif "pcr" in exp:
+        method = "pcr"
+    else:
+        run = exp.split("_")[0]
+        method = RUNS[run]["samples"]["Pool1"]["strategy"]
+    return config["references"][method]

@@ -1,9 +1,13 @@
 samplesheet:     "config/samplesheet.json"
 basecall_config: "dna_r9.4.1_450bps_sup.cfg"
+references:
+  pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.fa"
+  rpa: "/data/scratch/projects/punim1637/Nanopore/reference_rpa.fa"
 
 containers:
-  base:     "docker://bash:5.1"
-  python:   "docker://python:3.10.4-slim-bullseye"
-  guppy:    "docker://quay.io/mbhall88/guppy-gpu:6.3.2"
-  rs_utils: "docker://quay.io/mbhall88/rs-utils:0.1.0"
-  nanoplot: "docker://quay.io/biocontainers/nanoplot:1.40.0--pyhdfd78af_0"
+  base:       "docker://bash:5.1"
+  python:     "docker://python:3.10.4-slim-bullseye"
+  guppy:      "docker://quay.io/mbhall88/guppy-gpu:6.3.2"
+  rs_utils:   "docker://quay.io/mbhall88/rs-utils:0.1.0"
+  nanoplot:   "docker://quay.io/biocontainers/nanoplot:1.40.0--pyhdfd78af_0"
+  tbprofiler: "docker://quay.io/biocontainers/tb-profiler:4.3.0--pypyh5e36f6f_0"

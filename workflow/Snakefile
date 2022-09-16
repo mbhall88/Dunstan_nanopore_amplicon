@@ -44,8 +44,10 @@ for run, info in RUNS.items():
             exp = f"{run}_{sample}"
         else:
             exp = f"{run}_Pool1-3"
-        target_files.add(RESULTS / f"combined_reads/{exp}.fq.gz")
+        EXPERIMENTS.add(exp)
+        target_files.add(RESULTS / f"depth/{exp}.depth.tsv")
 
+target_files.add(RESULTS / "reports/tbprofiler")
 
 # =====================================
 rule all:
@@ -57,3 +59,4 @@ rule all:
 include: RULES / "common.smk"
 include: RULES / "basecall.smk"
 include: RULES / "qc.smk"
+include: RULES / "amr.smk"
