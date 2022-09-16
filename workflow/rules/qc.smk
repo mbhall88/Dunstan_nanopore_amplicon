@@ -47,22 +47,21 @@ rule calculate_depth:
         fastq=rules.aggregate_pools.output.fastq,
         ref=infer_reference,
     output:
-        depth=RESULTS / "depth/{experiment}.depth.tsv"
+        depth=RESULTS / "depth/{experiment}.depth.tsv",
     log:
-        LOGS / "calculate_depth/{experiment}.log"
-    threads:
-        4
+        LOGS / "calculate_depth/{experiment}.log",
+    threads: 4
     resources:
         time="2h",
-        mem_mb=lambda wildcards, attempt: attempt * int(8 * GB)
+        mem_mb=lambda wildcards, attempt: attempt * int(8 * GB),
     conda:
         str(ENVS / "aln_tools.yaml")
     params:
         mm2_opts="-ax map-ont --secondary=no --sam-hit-only",
-        samtools_opts="-aa"
+        samtools_opts="-aa",
     shell:
         """
         (minimap2 {params.mm2_opts} -t {threads} {input.ref} {input.fastq} \
             | samtools sort -@ {threads} \
-            | samtools depth {params.samtools_opts} -o {output.depth}) 2> {log}
+            | samtools depth {params.samtools_opts} -o {output.depth} -) 2> {log}
         """
