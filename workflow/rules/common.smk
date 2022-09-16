@@ -21,7 +21,7 @@ def infer_fastqs_to_aggregate(wildcards):
     fastqs = []
     run, sample_id = exp.split("_", maxsplit=1)
     if sample_id.startswith("Pool"):
-        m = re.search(r"Pool(?P<start>\d+)-?(?P<end>\d+)?")
+        m = re.search(r"Pool(?P<start>\d+)-?(?P<end>\d+)?", sample_id)
         if not m:
             raise ValueError(f"Got unknown experiment {exp}")
         start = int(m.group("start"))
