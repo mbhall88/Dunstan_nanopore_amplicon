@@ -43,7 +43,7 @@ for run, info in RUNS.items():
         elif sample == "Pool16":
             exp = f"{run}_{sample}"
         else:
-            exp = f"{run}_{uid}"
+            exp = f"{run}_Pool1-3"
         target_files.add(RESULTS / f"combined_reads/{exp}.fq.gz")
 
 
