@@ -8,8 +8,8 @@ rule tbprofiler_predict:
     shadow:
         "shallow"
     resources:
-        time="2h",
-        mem_mb=int(8 * GB),
+        time="12h",
+        mem_mb=int(12 * GB),
     threads: 4
     container:
         CONTAINERS["tbprofiler"]
