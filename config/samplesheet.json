@@ -97,7 +97,7 @@
             }
         },
         "20220819": {
-            "run_dir": "",
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Sunrita_RPA_Primer_Pool_20220819",
             "barcode_kit": [
                 "EXP-NBD114"
             ],
