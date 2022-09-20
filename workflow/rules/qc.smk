@@ -76,3 +76,18 @@ rule calculate_depth:
             | samtools sort -@ {threads} \
             | samtools depth {params.samtools_opts} -o {output.depth} -) 2> {log}
         """
+
+
+rule plot_depth:
+    input:
+        depth=rules.calculate_depth.output.depth,
+    output:
+        plot=report(PLOTS / "depth/{experiment}.depth.png", category="Depth"),
+    log:
+        LOGS / "plot_depth/{experiment}.log",
+    conda:
+        ENVS / "plot_depth.yaml"
+    resources:
+        time="5m",
+    script:
+        SCRIPTS / "plot_depth.py"

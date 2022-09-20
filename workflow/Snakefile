@@ -45,9 +45,10 @@ for run, info in RUNS.items():
         else:
             exp = f"{run}_Pool1-3"
         EXPERIMENTS.add(exp)
-        target_files.add(RESULTS / f"depth/{exp}.depth.tsv")
+        target_files.add(PLOTS / f"depth/{exp}.depth.png")
 
 target_files.add(RESULTS / "reports/tbprofiler")
+
 
 # =====================================
 rule all:
