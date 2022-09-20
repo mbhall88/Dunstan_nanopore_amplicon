@@ -17,7 +17,7 @@ rule qc_plot:
     threads: 2
     resources:
         mem_mb=lambda wildcards, attempt: attempt * int(8 * GB),
-        time="3h",
+        time="12h",
     params:
         opts=" ".join(
             [
@@ -89,5 +89,7 @@ rule plot_depth:
         ENVS / "plot_depth.yaml"
     resources:
         time="5m",
+    params:
+        samplesheet=sample_data
     script:
         SCRIPTS / "plot_depth.py"
