@@ -9,7 +9,7 @@ rule tbprofiler_predict:
         "shallow"
     resources:
         time="12h",
-        mem_mb=int(12 * GB),
+        mem_mb=lambda wildcards, attempt: attempt * int(12 * GB),
     threads: 4
     container:
         CONTAINERS["tbprofiler"]

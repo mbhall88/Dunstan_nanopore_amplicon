@@ -19,6 +19,7 @@ rule qc_plot:
                 "--no-N50",
                 "--title 'Run: {run} Sample: {sample}'",
                 "--dpi 300",
+                "--barcoded",
             ]
         ),
     container:
