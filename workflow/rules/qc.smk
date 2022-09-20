@@ -1,10 +1,19 @@
 rule qc_plot:
     input:
-        fastq=rules.merge_fastq.output.fastq,
+        summary=rules.basecall.output.summary,
     output:
-        outdir=directory(RESULTS / "QC/plots/{run}/{sample}"),
+        report=report(
+            RESULTS / "QC/plots/{run}/{run}NanoPlot-report.html",
+            category="QC",
+            subcategory="Read and run quality",
+        ),
+        stats=report(
+            RESULTS / "QC/plots/{run}/{run}NanoStats.txt",
+            category="QC",
+            subcategory="Read and run quality",
+        ),
     log:
-        LOGS / "qc_plot/{run}/{sample}.log",
+        LOGS / "qc_plot/{run}.log",
     threads: 2
     resources:
         mem_mb=lambda wildcards, attempt: attempt * int(8 * GB),
@@ -12,20 +21,21 @@ rule qc_plot:
     params:
         opts=" ".join(
             [
-                "-p {sample}",
+                "-p {run}",
                 "--tsv_stats",
                 "--loglength",
                 "--readtype 1D",
                 "--no-N50",
-                "--title 'Run: {run} Sample: {sample}'",
+                "--title 'Run: {run}'",
                 "--dpi 300",
                 "--barcoded",
             ]
         ),
+        outdir=lambda wildcards, output: Path(output.report).parent,
     container:
         CONTAINERS["nanoplot"]
     shell:
-        "NanoPlot -t {threads} {params.opts} --fastq_rich {input.fastq} -o {output.outdir} &> {log}"
+        "NanoPlot -t {threads} {params.opts} --summary {input.summary} -o {params.outdir} &> {log}"
 
 
 rule aggregate_pools:

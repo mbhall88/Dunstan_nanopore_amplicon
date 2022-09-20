@@ -35,7 +35,7 @@ for run, info in RUNS.items():
     if not run_dir:
         continue
     for sample in info["samples"]:
-        p = RESULTS / f"QC/plots/{run}/{sample}"
+        p = RESULTS / f"QC/plots/{run}"
         target_files.add(p)
         if "-" in sample:
             uid = sample.split("-", maxsplit=1)[1]
