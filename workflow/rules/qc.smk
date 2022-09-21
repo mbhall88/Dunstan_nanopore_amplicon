@@ -92,4 +92,4 @@ rule plot_depth:
     params:
         samplesheet=sample_data
     script:
-        SCRIPTS / "plot_depth.py"
+        str(SCRIPTS / "plot_depth.py")
