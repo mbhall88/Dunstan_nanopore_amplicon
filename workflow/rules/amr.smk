@@ -38,4 +38,7 @@ rule tbprofiler_collate:
         opts="--full",
         indir=lambda wildcards, input: Path(input.reports[0]).parent,
     shell:
-        "tb-profiler collate {params.opts} -d {output.outdir} -p {output.outdir} &> {log}"
+        """
+        mkdir -p {output.outdir} 2> {log}
+        tb-profiler collate {params.opts} -d {output.outdir} -p {output.outdir} &>> {log}
+        """
