@@ -28,7 +28,6 @@ rule qc_plot:
                 "--no-N50",
                 "--title 'Run: {run}'",
                 "--dpi 300",
-                "--barcoded",
             ]
         ),
         outdir=lambda wildcards, output: Path(output.report).parent,
