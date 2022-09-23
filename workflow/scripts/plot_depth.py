@@ -27,6 +27,8 @@ else:
     strategy = samples[f"Pool{pool}"]["strategy"]
 gene2pool = dict()
 for pool, pool_genes in samplesheet["primer_pools"][strategy].items():
+    if pool == "Pool16":
+        continue
     for g in pool_genes:
         gene2pool[g] = pool
 
