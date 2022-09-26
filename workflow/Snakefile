@@ -20,6 +20,7 @@ LOGS = Path("logs/rules").resolve()
 CONTAINERS = config["containers"]
 GB = 1_024
 GUPPY_VERSION = CONTAINERS["guppy"].split(":")[-1]
+tools = ["mykrobe", "tbprofiler"]
 
 # =====================================
 
@@ -47,8 +48,8 @@ for run, info in RUNS.items():
         EXPERIMENTS.add(exp)
         target_files.add(PLOTS / f"depth/{exp}.depth.png")
 
-target_files.add(RESULTS / "reports/tbprofiler.csv")
-target_files.add(RESULTS / "reports/mykrobe.csv")
+for tool in tools:
+    target_files.add(PLOTS / f"{tool}.dst.png")
 
 
 # =====================================
@@ -62,3 +63,4 @@ include: RULES / "common.smk"
 include: RULES / "basecall.smk"
 include: RULES / "qc.smk"
 include: RULES / "amr.smk"
+include: RULES / "report.smk"
