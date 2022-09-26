@@ -48,9 +48,9 @@ rule mykrobe_predict:
     shadow:
         "shallow"
     resources:
-        time="12h",
+        time="1d",
         mem_mb=lambda wildcards, attempt: attempt * int(8 * GB),
-    threads: 2
+    threads: 8
     container:
         CONTAINERS["mykrobe"]
     params:
@@ -74,7 +74,10 @@ rule mykrobe_predict:
 
 rule combine_mykrobe_reports:
     input:
-        reports=expand(str(RESULTS / "amr_predictions/mykrobe/results/{exp}.results.json"), exp=EXPERIMENTS),
+        reports=expand(
+            str(RESULTS / "amr_predictions/mykrobe/results/{exp}.results.json"),
+            exp=EXPERIMENTS,
+        ),
     output:
         report=RESULTS / "reports/mykrobe.csv",
     log:
