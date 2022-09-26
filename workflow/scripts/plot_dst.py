@@ -57,7 +57,7 @@ def main():
     ]
 
     def sort_drugs(a):
-        xs = drug_order
+        xs = list(map(str.capitalize, drug_order))
         out = []
         c = Counter()
         for x in a:
