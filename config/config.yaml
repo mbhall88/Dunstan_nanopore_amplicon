@@ -11,3 +11,4 @@ containers:
   rs_utils:   "docker://quay.io/mbhall88/rs-utils:0.1.0"
   nanoplot:   "docker://quay.io/biocontainers/nanoplot:1.40.0--pyhdfd78af_0"
   tbprofiler: "docker://quay.io/biocontainers/tb-profiler:4.3.0--pypyh5e36f6f_0"
+  mykrobe:    "docker://quay.io/biocontainers/mykrobe:0.12.1--py38hf97919f_1"

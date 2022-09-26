@@ -48,6 +48,7 @@ for run, info in RUNS.items():
         target_files.add(PLOTS / f"depth/{exp}.depth.png")
 
 target_files.add(RESULTS / "reports/tbprofiler")
+target_files.add(RESULTS / "amr_predictions/mykrobe/summary.csv")
 
 
 # =====================================
