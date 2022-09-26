@@ -79,7 +79,7 @@ def main():
     sns.scatterplot(
         data=df,
         x="drug",
-        y="run",
+        y="experiment",
         hue="prediction",
         hue_order=sorted(preds, reverse=True),
         ax=ax,
