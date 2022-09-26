@@ -54,7 +54,7 @@ rule mykrobe_predict:
     shadow:
         "shallow"
     resources:
-        time="1h",
+        time="6h",
         mem_mb=lambda wildcards, attempt: attempt * int(8 * GB),
     threads: 2
     container:
