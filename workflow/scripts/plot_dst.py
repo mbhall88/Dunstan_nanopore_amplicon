@@ -1,4 +1,5 @@
 import sys
+from itertools import product
 
 sys.stderr = open(snakemake.log[0], "w")
 
@@ -19,13 +20,13 @@ SIZE = snakemake.params.marker_size
 def main():
     df = pd.read_csv(snakemake.input.summary)
     df["drug"] = df["drug"].str.lower()
+    experiments = set(df["experiment"])
 
     # this is redundant info from tbprofiler as it also lists all the drugs in the class
-    skip_drugs = {"fluoroquinolones", "aminoglycosides"}
+    skip_drugs = {"fluoroquinolones", "aminoglycosides", "all"}
     df.query("drug not in @skip_drugs", inplace=True)
 
-    drugs = sorted(set(df["drug"]))
-    preds = list(set(df["prediction"]))
+    drugs = set(df["drug"])
 
     s = """AMK amikacin
     CAP capreomycin
@@ -62,6 +63,16 @@ def main():
         d for d in [*first_line, *fluoroquinolones, *macrolides, *other] if d in drugs
     ]
 
+    df.set_index(["experiment", "drug"], inplace=True)
+    # tbprofiler doesn't produce S calls
+    for drug, exp in product(drug_order, experiments):
+        ix = (exp, drug)
+        if ix not in df.index:
+            df.at[ix, "prediction"] = "S"
+
+    df.reset_index(inplace=True, drop=False)
+    preds = list(set(df["prediction"]))
+
     def sort_drugs(a):
         xs = drug_order
         out = []
@@ -73,7 +84,7 @@ def main():
             out.append((i, c[d]))
         return out
 
-    df = df.sort_values(by="drug", key=sort_drugs).reset_index(drop=True)
+    df = df.sort_values(by="experiment").sort_values(by="drug", key=sort_drugs).reset_index(drop=True)
 
     fig, ax = plt.subplots(figsize=FIGSIZE, dpi=DPI)
     sns.scatterplot(
@@ -107,6 +118,7 @@ def main():
     )
     _ = ax.tick_params(axis="y", which="major", labelsize=FS)
 
+    plt.tight_layout()
     fig.savefig(snakemake.output.plot)
 
 
