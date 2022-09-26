@@ -27,21 +27,15 @@ rule tbprofiler_collate:
             experiment=EXPERIMENTS,
         ),
     output:
-        outdir=directory(RESULTS / "reports/tbprofiler"),
+        summary=RESULTS / "reports/tbprofiler.csv",
     log:
         LOGS / "tbprofiler_collate.log",
     resources:
-        time="30m",
+        time="10m",
     container:
-        CONTAINERS["tbprofiler"]
-    params:
-        opts="--full",
-        indir=lambda wildcards, input: Path(input.reports[0]).parent,
-    shell:
-        """
-        mkdir -p {output.outdir} 2> {log}
-        tb-profiler collate {params.opts} -d {output.outdir} -p {output.outdir} &>> {log}
-        """
+        CONTAINERS["python"]
+    script:
+        str(SCRIPTS / "combine_tbprofiler_reports.py")
 
 
 rule mykrobe_predict:
@@ -82,7 +76,7 @@ rule combine_mykrobe_reports:
     input:
         reports=expand(str(RESULTS / "amr_predictions/mykrobe/results/{exp}.results.json"), exp=EXPERIMENTS),
     output:
-        report=RESULTS / "amr_predictions/mykrobe/summary.csv",
+        summary=RESULTS / "reports/mykrobe.csv",
     log:
         LOGS / "combine_mykrobe_reports.log",
     container:

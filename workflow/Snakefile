@@ -47,8 +47,8 @@ for run, info in RUNS.items():
         EXPERIMENTS.add(exp)
         target_files.add(PLOTS / f"depth/{exp}.depth.png")
 
-target_files.add(RESULTS / "reports/tbprofiler")
-target_files.add(RESULTS / "amr_predictions/mykrobe/summary.csv")
+target_files.add(RESULTS / "reports/tbprofiler.csv")
+target_files.add(RESULTS / "reports/mykrobe.csv")
 
 
 # =====================================
