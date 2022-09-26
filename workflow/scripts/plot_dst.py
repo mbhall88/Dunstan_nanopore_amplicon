@@ -19,6 +19,11 @@ SIZE = snakemake.params.marker_size
 def main():
     df = pd.read_csv(snakemake.input.summary)
     df["drug"] = df["drug"].str.lower()
+
+    # this is redundant info from tbprofiler as it also lists all the drugs in the class
+    skip_drugs = {"fluoroquinolones", "aminoglycosides"}
+    df.query("drug not in @skip_drugs", inplace=True)
+
     drugs = sorted(set(df["drug"]))
     preds = list(set(df["prediction"]))
 
