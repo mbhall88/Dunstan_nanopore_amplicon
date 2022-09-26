@@ -27,7 +27,7 @@ rule tbprofiler_collate:
             experiment=EXPERIMENTS,
         ),
     output:
-        summary=RESULTS / "reports/tbprofiler.csv",
+        report=RESULTS / "reports/tbprofiler.csv",
     log:
         LOGS / "tbprofiler_collate.log",
     resources:
@@ -76,7 +76,7 @@ rule combine_mykrobe_reports:
     input:
         reports=expand(str(RESULTS / "amr_predictions/mykrobe/results/{exp}.results.json"), exp=EXPERIMENTS),
     output:
-        summary=RESULTS / "reports/mykrobe.csv",
+        report=RESULTS / "reports/mykrobe.csv",
     log:
         LOGS / "combine_mykrobe_reports.log",
     container:
