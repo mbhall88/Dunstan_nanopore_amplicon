@@ -100,4 +100,5 @@ if "Pool16" not in sample_id:
         prop=dict(size=12),
     )
 
+plt.tight_layout()
 fig.savefig(snakemake.output.plot)
