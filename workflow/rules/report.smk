@@ -1,6 +1,7 @@
 rule plot_dst:
     input:
         summary=RESULTS / "reports/{tool}.csv",
+        phenotypes=config["phenotypes"],
     output:
         plot=report(PLOTS / "{tool}.dst.png", category="DST prediction"),
     log:

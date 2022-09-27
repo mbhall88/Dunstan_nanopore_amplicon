@@ -1,4 +1,5 @@
 samplesheet:     "config/samplesheet.json"
+phenotypes:      "config/phenotypes.csv"
 basecall_config: "dna_r9.4.1_450bps_sup.cfg"
 references:
   pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.fa"
