@@ -5,6 +5,10 @@ references:
   pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.fa"
   rpa: "/data/scratch/projects/punim1637/Nanopore/reference_rpa.fa"
 
+reference_lengths:
+  pcr: 16309
+  rpa: 7067
+
 containers:
   base:       "docker://bash:5.1"
   python:     "docker://python:3.10.4-slim-bullseye"
