@@ -49,7 +49,6 @@ fig, axes = plt.subplots(
     dpi=300,
     sharex=True,
     sharey=True,
-    constrained_layout=True,
 )
 
 x = "relpos"
@@ -101,4 +100,4 @@ if "Pool16" not in sample_id:
     )
 
 plt.tight_layout()
-fig.savefig(snakemake.output.plot)
+fig.savefig(snakemake.output.plot, bbox_inches="tight")
