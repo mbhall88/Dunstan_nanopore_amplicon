@@ -3,7 +3,11 @@ rule plot_dst:
         summary=RESULTS / "reports/{tool}.csv",
         phenotypes=config["phenotypes"],
     output:
-        plot=report(PLOTS / "{tool}.dst.png", category="DST prediction"),
+        plot=report(
+            PLOTS / "{tool}.dst.png",
+            category="DST prediction",
+            labels={"tool": "{tool}"},
+        ),
     log:
         LOGS / "plot_dst/{tool}.log",
     resources:

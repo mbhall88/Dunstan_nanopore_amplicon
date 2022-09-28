@@ -6,11 +6,13 @@ rule qc_plot:
             RESULTS / "QC/plots/{run}/{run}NanoPlot-report.html",
             category="QC",
             subcategory="Read and run quality",
+            labels={"Nanopore Run": "{run}", "figure": "HTML report"},
         ),
         stats=report(
             RESULTS / "QC/plots/{run}/{run}NanoStats.txt",
             category="QC",
             subcategory="Read and run quality",
+            labels={"Nanopore Run": "{run}", "figure": "Statistics"},
         ),
     log:
         LOGS / "qc_plot/{run}.log",
@@ -81,7 +83,11 @@ rule plot_depth:
     input:
         depth=rules.calculate_depth.output.depth,
     output:
-        plot=report(PLOTS / "depth/{experiment}.depth.png", category="Depth"),
+        plot=report(
+            PLOTS / "depth/{experiment}.depth.png",
+            category="Depth",
+            labels={"experiment": "{experiment}"},
+        ),
     log:
         LOGS / "plot_depth/{experiment}.log",
     conda:
@@ -89,6 +95,6 @@ rule plot_depth:
     resources:
         time="5m",
     params:
-        samplesheet=sample_data
+        samplesheet=sample_data,
     script:
         str(SCRIPTS / "plot_depth.py")
