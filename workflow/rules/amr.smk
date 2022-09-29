@@ -63,6 +63,7 @@ rule mykrobe_predict:
                 "--species tb",
                 "--sample {experiment}",
                 "--ont",
+                "--targeted",
             ]
         ),
     shell:
