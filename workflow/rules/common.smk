@@ -54,3 +54,15 @@ def infer_reference(wildcards):
         run = exp.split("_")[0]
         method = RUNS[run]["samples"]["Pool1"]["strategy"].lower()
     return config["references"][method]
+
+
+def infer_bed_file(wildcards):
+    exp = wildcards.experiment
+    if "rpa" in exp:
+        method = "rpa"
+    elif "pcr" in exp:
+        method = "pcr"
+    else:
+        run = exp.split("_")[0]
+        method = RUNS[run]["samples"]["Pool1"]["strategy"].lower()
+    return config["regions"][method]

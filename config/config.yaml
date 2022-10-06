@@ -5,6 +5,10 @@ references:
   pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.fa"
   rpa: "/data/scratch/projects/punim1637/Nanopore/reference_rpa.fa"
 
+regions:
+  pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.bed"
+  rpa: "/data/scratch/projects/punim1637/Nanopore/reference_rpa.bed"
+
 reference_lengths:
   pcr: 16309
   rpa: 7067

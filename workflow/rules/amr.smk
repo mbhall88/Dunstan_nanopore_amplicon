@@ -41,6 +41,7 @@ rule tbprofiler_collate:
 rule mykrobe_predict:
     input:
         fastq=rules.aggregate_pools.output.fastq,
+        bed=infer_bed_file,
     output:
         report=RESULTS / "amr_predictions/mykrobe/results/{experiment}.results.json",
     log:
@@ -63,12 +64,11 @@ rule mykrobe_predict:
                 "--species tb",
                 "--sample {experiment}",
                 "--ont",
-                "--targeted",
             ]
         ),
     shell:
         """
-        mykrobe predict {params.opts} -o {output.report} \
+        mykrobe predict {params.opts} -o {output.report} -T {input.bed}\
             -i {input.fastq} -t {threads} -m {resources.mem_mb}MB > {log} 2>&1
         """
 
