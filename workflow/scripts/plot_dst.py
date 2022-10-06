@@ -104,7 +104,7 @@ def main():
 
     # this is redundant info from tbprofiler as it also lists all the drugs in the class
     skip_drugs = {"fluoroquinolones", "aminoglycosides", "all"}
-    df.query("drug not in @skip_drugs", inplace=True)
+    df.query("drug not in @skip_drugs and prediction != 'N'", inplace=True)
 
     drugs = set(df["drug"])
 
