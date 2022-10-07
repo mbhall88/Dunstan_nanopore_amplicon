@@ -117,14 +117,24 @@
         "20221003": {
             "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_16_Primers_20221003",
             "barcode_kit": [
-                ""
+                "EXP-NBD104"
             ],
             "samples": {
-                "Pool16": {
-                    "barcode": "",
+                "Pool16-20395165-rpa": {
+                    "barcode": "NB10",
                     "strategy": "RPA",
                     "primers": "Pool16"
-                }
+                },
+                "Pool16-21258497-rpa": {
+                    "barcode": "NB11",
+                    "strategy": "RPA",
+                    "primers": "Pool16"
+                },
+                "Pool16-15139673-rpa": {
+                    "barcode": "NB12",
+                    "strategy": "RPA",
+                    "primers": "Pool16"
+                },
             }
         },
         "20220819": {
