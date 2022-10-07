@@ -8,12 +8,12 @@ def get_fast5_dir(wildcards):
 def get_barcode_kits(wildcards):
     kits = RUNS[wildcards.run]["barcode_kit"]
     s = " ".join(kits)
-    return f'--barcode_kits "{s}"'
+    return f'--barcode_kits "{s}"' if s else ""
 
 
 def get_barcode_dir(wildcards):
     barcode = RUNS[wildcards.run]["samples"][wildcards.sample]["barcode"]
-    return barcode.replace("NB", "barcode")
+    return barcode.replace("NB", "barcode") if barcode else ""
 
 
 def infer_fastqs_to_aggregate(wildcards):
