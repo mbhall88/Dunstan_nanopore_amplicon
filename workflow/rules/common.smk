@@ -31,7 +31,7 @@ def infer_fastqs_to_aggregate(wildcards):
         else:
             pools = list(range(start, int(end) + 1))
     else:
-        pools = [1, 2, 3]
+        pools = [1, 2, 3] if run !="20221003" else [16]
 
     for p in pools:
         if sample_id.startswith("Pool"):
