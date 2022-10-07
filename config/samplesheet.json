@@ -64,6 +64,24 @@
                 "rrs",
                 "fabG1",
                 "gyrA"
+            ],
+            "Pool16": [
+                "eis",
+                "embB",
+                "rrs",
+                "rv0678",
+                "fabG1",
+                "gyrA",
+                "rpoB",
+                "ethA",
+                "rplC",
+                "katG",
+                "gidB",
+                "inhA",
+                "rrl",
+                "pncA",
+                "rpsL",
+                "tlyA"
             ]
         }
     },
@@ -92,6 +110,19 @@
                 "Pool16": {
                     "barcode": "NB12",
                     "strategy": "PCR",
+                    "primers": "Pool16"
+                }
+            }
+        },
+        "20221003": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_16_Primers_20221003",
+            "barcode_kit": [
+                ""
+            ],
+            "samples": {
+                "Pool16": {
+                    "barcode": "",
+                    "strategy": "RPA",
                     "primers": "Pool16"
                 }
             }
