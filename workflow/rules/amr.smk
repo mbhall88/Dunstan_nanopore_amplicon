@@ -60,7 +60,7 @@ rule mykrobe_predict:
                 "--force",
                 "-A",
                 "-O json",
-                "-D 0.20",
+                "-D 0.10",
                 "--species tb",
                 "--sample {experiment}",
                 "--ont",
