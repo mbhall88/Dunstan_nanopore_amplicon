@@ -12,19 +12,22 @@ import seaborn as sns
 plt.style.use("ggplot")
 
 samplesheet = snakemake.params.samplesheet
+runs = samplesheet["runs"]
 experiment = snakemake.wildcards.experiment
 run, sample_id = experiment.split("_", maxsplit=1)
+samples = runs[run]["samples"]
+
 if "rpa" in sample_id:
     strategy = "RPA"
 elif "pcr" in sample_id:
     strategy = "PCR"
 else:
-    samples = samplesheet["runs"][run]["samples"]
     m = re.search(r"Pool(?P<pool>\d+)", sample_id)
     if not m:
         raise ValueError(f"Can't infer pool from {experiment}")
     pool = m.group("pool")
     strategy = samples[f"Pool{pool}"]["strategy"]
+
 gene2pool = dict()
 for pool, pool_genes in samplesheet["primer_pools"][strategy].items():
     if pool == "Pool16":
@@ -61,13 +64,27 @@ yticks = [
     )
 ]
 
+is_pool16 = False
+
 for g, ax in zip(genes, axes.flatten()):
-    if "Pool16" in sample_id:
-        colour = CMAP[0]
-    else:
-        pool = gene2pool[g]
-        i = int(pool[-1]) - 1
-        colour = CMAP[i]
+    found_sample = False
+    for s, sample_info in samples.items():
+        if sample_id in s:
+            primer_pool = sample_info["primers"]
+
+            if primer_pool == "Pool16":
+                colour = CMAP[0]
+                is_pool16 = True
+            else:
+                pool = gene2pool[g]
+                i = int(pool[-1]) - 1
+                colour = CMAP[i]
+
+            found_sample = True
+            break
+
+    if not found_sample:
+        raise KeyError(f"Couldn't infer primer pool for {experiment}")
 
     data = df.query("gene==@g")
     sns.lineplot(data=data, x=x, y=y, ax=ax, color=colour)
@@ -79,7 +96,7 @@ for g, ax in zip(genes, axes.flatten()):
     r = mpl.patches.Rectangle((0, 0), 1, 1, fill=False, edgecolor="none", visible=False)
     ax.legend([r], [f"median depth = {int(median_depth[g])}"], frameon=False)
 
-if "Pool16" not in sample_id:
+if is_pool16:
     handles = []
     labels = []
     for i in range(3):

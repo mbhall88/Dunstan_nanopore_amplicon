@@ -31,7 +31,14 @@ def infer_fastqs_to_aggregate(wildcards):
         else:
             pools = list(range(start, int(end) + 1))
     else:
-        pools = [1, 2, 3] if run !="20221003" else [16]
+        run_samples = RUNS[run]
+        pools = []
+        for sample, sample_info in run_samples.items():
+            if sample_id in sample:
+                pool = int(sample_info["primers"].replace("Pool", ""))
+                pools.append(pool)
+        if not pools:
+            raise ValueError(f"Failed to infer pools for {exp}")
 
     for p in pools:
         if sample_id.startswith("Pool"):
