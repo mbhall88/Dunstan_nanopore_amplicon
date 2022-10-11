@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eux
+set -eu
 
 module load singularity/3.8.5
 
@@ -21,3 +21,5 @@ CMD="snakemake --profile $PROFILE --rerun-incomplete --local-cores $THREADS $* -
 
 ssubmit -t "$TIME" -m "$MEMORY" -o "$LOG_DIR"/"$JOB_NAME".o \
     -e "$LOG_DIR"/"$JOB_NAME".e "$JOB_NAME" "$CMD" -- -c "$THREADS"
+
+chmod +r .snakemake/
