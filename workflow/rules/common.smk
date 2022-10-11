@@ -31,7 +31,7 @@ def infer_fastqs_to_aggregate(wildcards):
         else:
             pools = list(range(start, int(end) + 1))
     else:
-        run_samples = RUNS[run]
+        run_samples = RUNS[run]["samples"]
         pools = []
         for sample, sample_info in run_samples.items():
             if sample_id in sample:
