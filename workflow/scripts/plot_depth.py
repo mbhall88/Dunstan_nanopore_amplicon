@@ -67,35 +67,30 @@ yticks = [
 is_pool16 = False
 
 for g, ax in zip(genes, axes.flatten()):
-    found_sample = False
-    for s, sample_info in samples.items():
-        if sample_id in s:
-            primer_pool = sample_info["primers"]
+    if is_pool16:
+        colour = CMAP[0]
+    elif sample_id.starswith("Pool"):
+        if "Pool16" in sample_id:
+            colour = CMAP[0]
+            is_pool16 = True
+        else:
+            pool = gene2pool[g]
+            i = int(pool[-1]) - 1
+            colour = CMAP[i]
+    else:
+        for s, sample_info in samples.items():
+            if sample_id in s:
+                primers = sample_info["primers"]
 
-            if primer_pool == "Pool16":
-                colour = CMAP[0]
-                is_pool16 = True
-            else:
-                pool = gene2pool[g]
-                i = int(pool[-1]) - 1
-                colour = CMAP[i]
+                if primers == "Pool16":
+                    colour = CMAP[0]
+                    is_pool16 = True
+                else:
+                    pool = gene2pool[g]
+                    i = int(pool[-1]) - 1
+                    colour = CMAP[i]
 
-            found_sample = True
-            break
-        elif s.startswith("Pool"):
-            if s == "Pool16":
-                colour = CMAP[0]
-                is_pool16 = True
-            else:
-                pool = gene2pool[g]
-                i = int(pool[-1]) - 1
-                colour = CMAP[i]
-
-            found_sample = True
-            break
-
-    if not found_sample:
-        raise KeyError(f"Couldn't infer primer pool for {experiment}")
+                break
 
     data = df.query("gene==@g")
     sns.lineplot(data=data, x=x, y=y, ax=ax, color=colour)
