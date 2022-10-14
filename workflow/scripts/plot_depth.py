@@ -82,6 +82,17 @@ for g, ax in zip(genes, axes.flatten()):
 
             found_sample = True
             break
+        elif s.startswith("Pool"):
+            if s == "Pool16":
+                colour = CMAP[0]
+                is_pool16 = True
+            else:
+                pool = gene2pool[g]
+                i = int(pool[-1]) - 1
+                colour = CMAP[i]
+
+            found_sample = True
+            break
 
     if not found_sample:
         raise KeyError(f"Couldn't infer primer pool for {experiment}")
