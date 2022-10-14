@@ -69,7 +69,7 @@ is_pool16 = False
 for g, ax in zip(genes, axes.flatten()):
     if is_pool16:
         colour = CMAP[0]
-    elif sample_id.starswith("Pool"):
+    elif sample_id.startswith("Pool"):
         if "Pool16" in sample_id:
             colour = CMAP[0]
             is_pool16 = True
