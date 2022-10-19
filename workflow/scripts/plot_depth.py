@@ -102,7 +102,7 @@ for g, ax in zip(genes, axes.flatten()):
     r = mpl.patches.Rectangle((0, 0), 1, 1, fill=False, edgecolor="none", visible=False)
     ax.legend([r], [f"median depth = {int(median_depth[g])}"], frameon=False)
 
-if is_pool16:
+if not is_pool16:
     handles = []
     labels = []
     for i in range(3):
