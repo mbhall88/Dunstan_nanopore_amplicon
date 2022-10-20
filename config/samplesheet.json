@@ -120,7 +120,7 @@
                 "EXP-NBD104"
             ],
             "samples": {
-                "Pool16-20395165-rpa": {
+                "Pool16-21121085-rpa": {
                     "barcode": "NB10",
                     "strategy": "RPA",
                     "primers": "Pool16"
