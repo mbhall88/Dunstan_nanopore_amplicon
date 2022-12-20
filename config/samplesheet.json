@@ -42,6 +42,38 @@
                 "tlyA"
             ]
         },
+        "New_24": {
+            "Pool1": [
+                "KatG",
+                "rplC",
+                "embB_2",
+                "rrs",
+                "rv0678",
+                "fabG1_2",
+                "rpoB",
+                "ethA_3",
+                "tlyA_3",
+                "embA",
+                "rpsL",
+                "pncA_2"
+
+            ],
+            "Pool2": [
+                "tlyA_2",
+                "eis",
+                "embB_3",
+                "rrs_2",
+                "ethA_4",
+                "fabG1_3",
+                "gidB_2",
+                "ethA_5",
+                "ethA_6",
+                "pncA_3",
+                "gyrA",
+                "tlyA_4"
+
+            ]
+        },
         "RPA": {
             "Pool1": [
                 "rrl",
@@ -134,6 +166,24 @@
                     "barcode": "NB12",
                     "strategy": "RPA",
                     "primers": "Pool16"
+                }
+            }
+        },
+        "20221213": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_24-Primers_20221213",
+            "barcode_kit": [
+                "EXP-NBD104"
+            ],
+            "samples": {
+                "Pool1": {
+                    "barcode": "NB01",
+                    "primers": "Pool1",
+                    "strategy": "New_24"
+                },
+                "Pool2": {
+                    "barcode": "NB02",
+                    "primers": "Pool2",
+                    "strategy": "New_24"
                 }
             }
         },
