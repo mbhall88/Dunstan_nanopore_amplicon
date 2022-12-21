@@ -134,3 +134,4 @@ results/
 workflow/notebooks
 .DS_Store
 *.xlsx
+tmp/
