@@ -39,7 +39,7 @@ for run, info in RUNS.items():
     target_files.add(p)
 
     samples = info["samples"]
-    if all(s.startswith("Pool") for s in samples):
+    if all(s.startswith("Pool") and "-" not in s for s in samples):
         rng = [int(s.replace("Pool", "")) for s in samples]
         start_rng = min(rng)
         end_rng = max(rng)
