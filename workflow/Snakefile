@@ -47,7 +47,7 @@ for run, info in RUNS.items():
             exp = f"{run}_Pool16"
             EXPERIMENTS.add(exp)
             target_files.add(PLOTS / f"depth/{exp}.depth.png")
-            
+
         start_rng = min(rng)
         end_rng = max(rng)
 
