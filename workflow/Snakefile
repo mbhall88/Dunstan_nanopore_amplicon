@@ -35,18 +35,29 @@ for run, info in RUNS.items():
     run_dir = info["run_dir"]
     if not run_dir:
         continue
-    for sample in info["samples"]:
-        p = RESULTS / f"QC/plots/{run}/{run}NanoPlot-report.html"
-        target_files.add(p)
-        if "-" in sample:
-            uid = sample.split("-", maxsplit=1)[1]
-            exp = f"{run}_{uid}"
-        elif sample == "Pool16":
-            exp = f"{run}_{sample}"
+    p = RESULTS / f"QC/plots/{run}/{run}NanoPlot-report.html"
+    target_files.add(p)
+
+    samples = info["samples"]
+    if all(s.startswith("Pool") for s in samples):
+        rng = [int(s.replace("Pool", "")) for s in samples]
+        start_rng = min(rng)
+        end_rng = max(rng)
+
+        if start_rng == end_rng:
+            exp = f"{run}_Pool{start_rng}"
         else:
-            exp = f"{run}_Pool1-3"
+            exp = f"{run}_Pool{start_rng}-{end_rng}"
+
         EXPERIMENTS.add(exp)
         target_files.add(PLOTS / f"depth/{exp}.depth.png")
+    else:
+        for sample in info["samples"]:
+            if "-" in sample:
+                uid = sample.split("-", maxsplit=1)[1]
+                exp = f"{run}_{uid}"
+                EXPERIMENTS.add(exp)
+                target_files.add(PLOTS / f"depth/{exp}.depth.png")
 
 for tool in tools:
     target_files.add(PLOTS / f"{tool}.dst.png")
