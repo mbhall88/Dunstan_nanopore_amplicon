@@ -41,6 +41,13 @@ for run, info in RUNS.items():
     samples = info["samples"]
     if all(s.startswith("Pool") and "-" not in s for s in samples):
         rng = [int(s.replace("Pool", "")) for s in samples]
+
+        if 16 in rng:
+            rng = [x for x in rng if x != 16]
+            exp = f"{run}_Pool16"
+            EXPERIMENTS.add(exp)
+            target_files.add(PLOTS / f"depth/{exp}.depth.png")
+            
         start_rng = min(rng)
         end_rng = max(rng)
 
