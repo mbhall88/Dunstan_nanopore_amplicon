@@ -45,9 +45,19 @@ median_depth = dict()
 for g in genes:
     median_depth[g] = df.query("gene==@g")["depth"].median()
 
+n_cells = len(genes)
+if n_cells == 16:
+    nrows = 4
+    ncols = 4
+elif n_cells == 24:
+    n_rows = 4
+    n_cols = 6
+else:
+    raise NotImplementedError(f"Don't know how many rows and cells for {n_cells} genes")
+
 fig, axes = plt.subplots(
-    nrows=4,
-    ncols=4,
+    nrows=nrows,
+    ncols=ncols,
     figsize=(13, 13),
     dpi=300,
     sharex=True,
