@@ -66,6 +66,8 @@ yticks = [
 
 is_pool16 = False
 
+pool_nums = set()
+
 for g, ax in zip(genes, axes.flatten()):
     if is_pool16:
         colour = CMAP[0]
@@ -77,6 +79,7 @@ for g, ax in zip(genes, axes.flatten()):
             pool = gene2pool[g]
             i = int(pool[-1]) - 1
             colour = CMAP[i]
+            pool_nums.add(i + 1)
     else:
         for s, sample_info in samples.items():
             if sample_id in s:
@@ -89,6 +92,7 @@ for g, ax in zip(genes, axes.flatten()):
                     pool = gene2pool[g]
                     i = int(pool[-1]) - 1
                     colour = CMAP[i]
+                    pool_nums.add(i + 1)
 
                 break
 
@@ -105,9 +109,9 @@ for g, ax in zip(genes, axes.flatten()):
 if not is_pool16:
     handles = []
     labels = []
-    for i in range(3):
-        c = CMAP[i]
-        pool = i + 1
+    for i in sorted(pool_nums):
+        c = CMAP[i - 1]
+        pool = i
         label = f"Pool{pool}"
         line = mpl.patches.mlines.Line2D([], [], color=c, linewidth=5)
         labels.append(label)
