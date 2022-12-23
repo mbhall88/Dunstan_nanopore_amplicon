@@ -8,7 +8,7 @@ rule tbprofiler_predict:
     shadow:
         "shallow"
     resources:
-        time="12h",
+        time="1d",
         mem_mb=lambda wildcards, attempt: attempt * int(30 * GB),
     threads: 4
     container:
