@@ -50,8 +50,8 @@ if n_cells == 16:
     nrows = 4
     ncols = 4
 elif n_cells == 24:
-    n_rows = 4
-    n_cols = 6
+    nrows = 4
+    ncols = 6
 else:
     raise NotImplementedError(f"Don't know how many rows and cells for {n_cells} genes")
 
