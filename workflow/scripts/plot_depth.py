@@ -114,7 +114,15 @@ for g, ax in zip(genes, axes.flatten()):
     ax.set_yticks(yticks)
     ax.set_yticklabels(yticks)
     r = mpl.patches.Rectangle((0, 0), 1, 1, fill=False, edgecolor="none", visible=False)
-    ax.legend([r], [f"median depth = {int(median_depth[g])}"], frameon=False)
+    ax.legend(
+        [r],
+        [f"med. depth={int(median_depth[g])}"],
+        frameon=False,
+        prop=dict(size=9),
+        loc=(0, 0),
+        markerfirst=False,
+    )
+
 
 if not is_pool16:
     handles = []
