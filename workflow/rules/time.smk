@@ -47,10 +47,10 @@ rule plot_depth_for_time:
             PLOTS / "time/{experiment}.depth.png",
             category="Depth",
             subcategory="Time",
-            labels={"experiment": "{experiment}", "time": "{time}"},
+            labels={"experiment": "{experiment}"},
             ),
     log:
-        LOGS / "plot_depth_for_time/{time}/{experiment}.log",
+        LOGS / "plot_depth_for_time/{experiment}.log",
     conda:
         ENVS / "plot_depth.yaml"
     resources:

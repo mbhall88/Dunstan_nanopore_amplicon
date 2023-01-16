@@ -86,5 +86,6 @@ rule all:
 include: RULES / "common.smk"
 include: RULES / "basecall.smk"
 include: RULES / "qc.smk"
+include: RULES / "time.smk"
 include: RULES / "amr.smk"
 include: RULES / "report.smk"
