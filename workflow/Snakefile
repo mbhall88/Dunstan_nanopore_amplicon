@@ -21,6 +21,7 @@ CONTAINERS = config["containers"]
 GB = 1_024
 GUPPY_VERSION = CONTAINERS["guppy"].split(":")[-1]
 tools = ["mykrobe", "tbprofiler"]
+TIMES = config["times"]
 
 # =====================================
 
@@ -58,6 +59,7 @@ for run, info in RUNS.items():
 
         EXPERIMENTS.add(exp)
         target_files.add(PLOTS / f"depth/{exp}.depth.png")
+        target_files.add(PLOTS / f"time/{exp}.depth.png")
     else:
         for sample in info["samples"]:
             if "-" in sample:
@@ -65,6 +67,10 @@ for run, info in RUNS.items():
                 exp = f"{run}_{uid}"
                 EXPERIMENTS.add(exp)
                 target_files.add(PLOTS / f"depth/{exp}.depth.png")
+                target_files.add(PLOTS / f"time/{exp}.depth.png")
+
+
+
 
 for tool in tools:
     target_files.add(PLOTS / f"{tool}.dst.png")
