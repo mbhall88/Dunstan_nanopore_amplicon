@@ -74,6 +74,93 @@
 
             ]
         },
+        "New_242": {
+            "Pool1": [
+                "tlyA_2",
+                "rplC",
+                "embB_2",
+                "rrs",
+                "rv0678",
+                "fabG1_2",
+                "rpoB",
+                "ethA_3",
+                "tlyA_3",
+                "embA",
+                "ethA_4",
+                "pncA_3",
+                "eis",
+                "embB_3",
+                "rrs_2",
+                "rpsl",
+                "fabG1_3",
+                "gidB_2",
+                "ethA_5",
+                "ethA_6",
+                "pncA_2",
+                "gyrA",
+                "tlyA_4",
+                "katG"
+            ]
+        },
+        "New_24_pnca": {
+            "Pool1": [
+                "tlyA_2",
+                "rplC",
+                "embB_2",
+                "rrs",
+                "rv0678",
+                "fabG1_2",
+                "rpoB",
+                "ethA_3",
+                "tlyA_3",
+                "embA",
+                "ethA_4",
+                "pncA_3",
+                "eis",
+                "embB_3",
+                "rrs_2",
+                "rpsl",
+                "fabG1_3",
+                "gidB_2",
+                "ethA_5",
+                "ethA_6",
+                "pncA_4",
+                "gyrA",
+                "tlyA_4",
+                "katG"
+            ]
+        },
+
+        "New_24_pnca_katg": {
+            "Pool1": [
+                "tlyA_2",
+                "rplC",
+                "embB_2",
+                "rrs",
+                "rv0678",
+                "fabG1_2",
+                "rpoB",
+                "ethA_3",
+                "tlyA_3",
+                "embA",
+                "ethA_4",
+                "pncA_3",
+                "eis",
+                "embB_3",
+                "rrs_2",
+                "rpsl",
+                "fabG1_3",
+                "gidB_2",
+                "ethA_5",
+                "ethA_6",
+                "pncA_4",
+                "gyrA",
+                "tlyA_4",
+                "katG_2"
+            ]
+        },
+
+
         "RPA": {
             "Pool1": [
                 "rrl",
@@ -146,6 +233,31 @@
                 }
             }
         },
+
+        "20230206": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_2x12primerpool_20230206",
+            "barcode_kit": [
+                "EXP-NBD104"
+            ],
+            "samples": {
+                "Pool1-New_242": {
+                    "barcode": "NB03",
+                    "strategy": "New_242",
+                    "primers": "Pool1"
+                },
+                "Pool1-New_24_pnca": {
+                    "barcode": "NB04",
+                    "strategy": "New_24_pnca",
+                    "primers": "Pool1"
+                },
+                "Pool1-New_24_pnca_katg": {
+                    "barcode": "NB05",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                }
+            }
+        },
+
         "20221003": {
             "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_16_Primers_20221003",
             "barcode_kit": [
