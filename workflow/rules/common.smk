@@ -67,7 +67,7 @@ def infer_reference(wildcards):
         if len(strategies) != 1:
             raise KeyError(f"Got more than one strategy for {exp}")
         else:
-            method = strategies
+            method = strategies.pop()
     return config["references"][method]
 
 
@@ -87,5 +87,5 @@ def infer_bed_file(wildcards):
         if len(strategies) != 1:
             raise KeyError(f"Got more than one strategy for {exp}")
         else:
-            method = strategies
+            method = strategies.pop()
     return config["regions"][method]
