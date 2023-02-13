@@ -59,7 +59,6 @@ def infer_reference(wildcards):
         method = "pcr"
     else:
         run, sample = exp.split("_", maxsplit=1)
-        sample = sample.lower()
         method = RUNS[run]["samples"][sample]["strategy"].lower()
     return config["references"][method]
 
@@ -72,6 +71,5 @@ def infer_bed_file(wildcards):
         method = "pcr"
     else:
         run, sample = exp.split("_", maxsplit=1)
-        sample = sample.lower()
         method = RUNS[run]["samples"][sample]["strategy"].lower()
     return config["regions"][method]
