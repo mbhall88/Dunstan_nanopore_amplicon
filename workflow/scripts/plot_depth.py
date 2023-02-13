@@ -24,9 +24,18 @@ elif "pcr" in sample_id:
 else:
     m = re.search(r"Pool(?P<pool>\d+)", sample_id)
     if not m:
-        raise ValueError(f"Can't infer pool from {experiment}")
-    pool = m.group("pool")
-    strategy = samples[f"Pool{pool}"]["strategy"]
+        _, sample = experiment.split("_", maxsplit=1)
+        strategies = set()
+        for s in samples:
+            if s.startswith(sample) or s.endswith(sample):
+                strategies.add(samples[s]["strategy"].lower())
+        if len(strategies) != 1:
+            raise KeyError(f"Got more than one strategy for {exp}")
+        else:
+            strategy = strategies.pop()
+    else:
+        pool = m.group("pool")
+        strategy = samples[f"Pool{pool}"]["strategy"]
 
 gene2pool = dict()
 for pool, pool_genes in samplesheet["primer_pools"][strategy].items():
