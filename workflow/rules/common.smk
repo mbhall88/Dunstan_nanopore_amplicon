@@ -62,7 +62,7 @@ def infer_reference(wildcards):
         samples = RUNS[run]["samples"]
         strategies = set()
         for s in samples:
-            if sample in s:
+            if s.startswith(sample) or s.endswith(sample):
                 strategies.add(samples[s]["strategy"].lower())
         if len(strategies) != 1:
             raise KeyError(f"Got more than one strategy for {exp}")
@@ -82,7 +82,7 @@ def infer_bed_file(wildcards):
         samples = RUNS[run]["samples"]
         strategies = set()
         for s in samples:
-            if sample in s:
+            if s.startswith(sample) or s.endswith(sample):
                 strategies.add(samples[s]["strategy"].lower())
         if len(strategies) != 1:
             raise KeyError(f"Got more than one strategy for {exp}")
