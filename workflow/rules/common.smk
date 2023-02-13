@@ -70,6 +70,6 @@ def infer_bed_file(wildcards):
     elif "pcr" in exp:
         method = "pcr"
     else:
-        run = exp.split("_")[0]
-        method = RUNS[run]["samples"]["Pool1"]["strategy"].lower()
+        run, sample = exp.split("_", maxsplit=1)
+        method = RUNS[run]["samples"][sample]["strategy"].lower()
     return config["regions"][method]
