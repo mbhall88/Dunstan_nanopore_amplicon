@@ -59,7 +59,15 @@ def infer_reference(wildcards):
         method = "pcr"
     else:
         run, sample = exp.split("_", maxsplit=1)
-        method = RUNS[run]["samples"][sample]["strategy"].lower()
+        samples = RUNS[run]["samples"]
+        strategies = set()
+        for s in samples:
+            if sample in s:
+                strategies.add(samples[s]["strategy"].lower())
+        if len(strategies) != 1:
+            raise KeyError(f"Got more than one strategy for {exp}")
+        else:
+            method = strategies
     return config["references"][method]
 
 
@@ -71,5 +79,13 @@ def infer_bed_file(wildcards):
         method = "pcr"
     else:
         run, sample = exp.split("_", maxsplit=1)
-        method = RUNS[run]["samples"][sample]["strategy"].lower()
+        samples = RUNS[run]["samples"]
+        strategies = set()
+        for s in samples:
+            if sample in s:
+                strategies.add(samples[s]["strategy"].lower())
+        if len(strategies) != 1:
+            raise KeyError(f"Got more than one strategy for {exp}")
+        else:
+            method = strategies
     return config["regions"][method]
