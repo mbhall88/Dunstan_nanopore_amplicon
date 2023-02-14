@@ -30,7 +30,7 @@ else:
             if s.startswith(sample) or s.endswith(sample):
                 strategies.add(samples[s]["strategy"].lower())
         if len(strategies) != 1:
-            raise KeyError(f"Got more than one strategy for {exp}")
+            raise KeyError(f"Got more than one strategy for {experiment}")
         else:
             strategy = strategies.pop()
     else:
