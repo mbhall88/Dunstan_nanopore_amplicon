@@ -29,7 +29,7 @@ else:
         strategies = set()
         for s in samples:
             if s.startswith(sample) or s.endswith(sample):
-                strategies.add(samples[s]["strategy"].lower())
+                strategies.add(samples[s]["strategy"])
         if len(strategies) != 1:
             raise KeyError(f"Got more than one strategy for {experiment}")
         else:
