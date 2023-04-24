@@ -29,7 +29,7 @@ with open(config["samplesheet"]) as fp:
     sample_data = json.load(fp)
 
 RUNS = sample_data["runs"]
-STRATEGIES = [s.lower() for s in sorted(set(sample_data["primer_pools"].keys())))
+STRATEGIES = [s.lower() for s in sorted(set(sample_data["primer_pools"].keys()))]
 # =====================================
 target_files = set()
 EXPERIMENTS = set()
