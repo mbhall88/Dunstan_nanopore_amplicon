@@ -59,10 +59,7 @@ def extract_strategy(exp: str) -> str:
     else:
         run, sample = exp.split("_", maxsplit=1)
         samples = RUNS[run]["samples"]
-        strategies = set()
-        for s in samples:
-            if s.startswith(sample) or s.endswith(sample):
-                strategies.add(samples[s]["strategy"].lower())
+        strategies = {v["primers"] for k, v in samples.items()}
         if len(strategies) > 1:
             raise KeyError(f"Got more than one strategy for {exp}")
         elif not strategies:
