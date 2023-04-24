@@ -258,6 +258,65 @@
             }
         },
 
+        "20230419": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_MDR-XDR_Sputum_20230419",
+            "barcode_kit": [
+                "EXP-NBD114"
+            ],
+            "samples": {
+                "Pool1-20395165-New_24_pnca_katg": {
+                    "barcode": "NB13",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21015756-New_24_pnca_katg": {
+                    "barcode": "NB14",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21019114-New_24_pnca_katg": {
+                    "barcode": "NB15",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21052747-New_24_pnca_katg": {
+                    "barcode": "NB16",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21092267-New_24_pnca_katg": {
+                    "barcode": "NB17",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21121085-New_24_pnca_katg": {
+                    "barcode": "NB18",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-21258497-New_24_pnca_katg": {
+                    "barcode": "NB19",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-15139673-New_24_pnca_katg": {
+                    "barcode": "NB20",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-DETECT-DRTB-38-New_24_pnca_katg": {
+                    "barcode": "NB21",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-DETECT-DRTB-64-New_24_pnca_katg": {
+                    "barcode": "NB22",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                }
+
+            }
+        },
         "20221003": {
             "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_16_Primers_20221003",
             "barcode_kit": [

@@ -23,3 +23,13 @@ experiment,VIDRL_ID,rifampicin,isoniazid,ethambutol,pyrazinamide,amikacin,clofaz
 20230206_Pool1-New_242,,S,S,S,S,S,S,S,S,S,S
 20230206_Pool1-New_24_pnca,,S,S,S,S,S,S,S,S,S,S
 20230206_Pool1-New_24_pnca_katg,,S,S,S,S,S,S,S,S,S,S
+Pool1-20395165-New_24_pnca_katg,20395165,R0.5|S1.0,R,S,S,S,S,S,S,R,R
+Pool1-21015756-New_24_pnca_katg,21015756,R,R0.1|S0.4,S,R,S,S,R,S,S,S
+Pool1-21019114-New_24_pnca_katg,21019114,R,R,R,S,S,S,S,S,R,R
+Pool1-21052747-New_24_pnca_katg,21052747,R0.25|S0.5,R,R,S,S,S,S,S,S,S
+"Pool1-21092267-New_24_pnca_katg""",21092267,R,R,R,R,S,S,R,S,S,S
+Pool1-21121085-New_24_pnca_katg,21121085,S,S,S,R,,,,,,
+Pool1-21258497-New_24_pnca_katg,21258497,S,R,S,S,S,S,S,S,S,S
+Pool1-15139673-New_24_pnca_katg,15139673,R,R,S,R,R,R,S,R,R,R
+Pool1-DETECT-DRTB-38-New_24_pnca_katg,,S,S,S,S,S,S,S,S,S,S
+Pool1-DETECT-DRTB-64-New_24_pnca_katg,,S,S,S,S,S,S,S,S,S,S
