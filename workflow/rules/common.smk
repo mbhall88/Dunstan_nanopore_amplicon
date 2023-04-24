@@ -53,7 +53,7 @@ def infer_fastqs_to_aggregate(wildcards):
 
 def extract_strategy(exp: str) -> str:
     for strat in STRATEGIES:
-        if exp.endswith(strat):
+        if exp.lower().endswith(strat):
             method = strat
             break
     else:
