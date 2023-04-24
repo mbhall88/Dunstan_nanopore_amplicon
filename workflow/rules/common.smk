@@ -65,7 +65,7 @@ def extract_strategy(exp: str) -> str:
         elif not strategies:
             raise KeyError(f"Got no strategy for {exp}")
         else:
-            method = strategies.pop()
+            method = strategies.pop().lower()
 
     return method
 
