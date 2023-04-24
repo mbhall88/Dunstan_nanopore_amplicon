@@ -51,12 +51,11 @@ def infer_fastqs_to_aggregate(wildcards):
     return fastqs
 
 
-def infer_reference(wildcards):
-    exp = wildcards.experiment
-    if "rpa" in exp:
-        method = "rpa"
-    elif "pcr" in exp:
-        method = "pcr"
+def extract_strategy(exp: str) -> str:
+    for strat in STRATEGIES:
+        if exp.endswith(strat):
+            method = strat
+            break
     else:
         run, sample = exp.split("_", maxsplit=1)
         samples = RUNS[run]["samples"]
@@ -64,28 +63,23 @@ def infer_reference(wildcards):
         for s in samples:
             if s.startswith(sample) or s.endswith(sample):
                 strategies.add(samples[s]["strategy"].lower())
-        if len(strategies) != 1:
+        if len(strategies) > 1:
             raise KeyError(f"Got more than one strategy for {exp}")
+        elif not strategies:
+            raise KeyError(f"Got no strategy for {exp}")
         else:
             method = strategies.pop()
+
+    return method
+
+
+def infer_reference(wildcards):
+    exp = wildcards.experiment
+    method = extract_strategy(exp)
     return config["references"][method]
 
 
 def infer_bed_file(wildcards):
     exp = wildcards.experiment
-    if "rpa" in exp:
-        method = "rpa"
-    elif "pcr" in exp:
-        method = "pcr"
-    else:
-        run, sample = exp.split("_", maxsplit=1)
-        samples = RUNS[run]["samples"]
-        strategies = set()
-        for s in samples:
-            if s.startswith(sample) or s.endswith(sample):
-                strategies.add(samples[s]["strategy"].lower())
-        if len(strategies) != 1:
-            raise KeyError(f"Got more than one strategy for {exp}")
-        else:
-            method = strategies.pop()
+    method = extract_strategy(exp)
     return config["regions"][method]
