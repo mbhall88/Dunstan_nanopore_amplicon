@@ -8,6 +8,7 @@ references:
   new_242: "/data/scratch/projects/punim1637/Nanopore/reference.fa"
   new_24_pnca: "/data/scratch/projects/punim1637/Nanopore/reference_pnca.fa"
   new_24_pnca_katg: "/data/scratch/projects/punim1637/Nanopore/reference_pnca_katg.fa"
+  new_24_pnca_katg_lambda: "/data/scratch/projects/punim1637/Nanopore/reference_pnca_katg_lambda.fa"
 
 regions:
   pcr: "/data/scratch/projects/punim1637/Nanopore/reference_pcr.bed"
@@ -16,6 +17,7 @@ regions:
   new_242: "/data/scratch/projects/punim1637/Nanopore/reference.bed"
   new_24_pnca: "/data/scratch/projects/punim1637/Nanopore/reference_pnca.bed"
   new_24_pnca_katg: "/data/scratch/projects/punim1637/Nanopore/reference_pnca_katg.bed"
+  new_24_pnca_katg_lambda: "/data/scratch/projects/punim1637/Nanopore/reference_pnca_katg_lambda.bed"
 
 reference_lengths:
   pcr: 16309
@@ -24,6 +26,7 @@ reference_lengths:
   new_242: 12247
   new_24_pnca: 11034
   new_24_pnca_katg: 11074
+  new_24_pnca_katg_lambda: 11467
 
 times:  # take the first <duration> of sequencing to plot stats for
   - "1h"

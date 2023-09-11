@@ -12,7 +12,7 @@ if [[ ! -d "$LOG_DIR" ]]; then
 fi
 
 MEMORY="1G"
-TIME="1d"
+TIME="2d"
 THREADS=2
 PROFILE="slurm.punim1637"
 BINDS="/data/scratch/projects/punim1637/"
