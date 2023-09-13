@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -eu
 
-module load singularity/3.8.5
+module load GCCcore/11.3.0
+module load Apptainer/1.1.8
 
 JOB_NAME="snakemake_master_process."$(date "+%s")
 LOG_DIR="logs"
