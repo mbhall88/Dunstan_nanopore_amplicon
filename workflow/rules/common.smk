@@ -1,6 +1,12 @@
 import re
 
 
+def infer_basecall_config(wildcards):
+    run = wildcards.run
+    flowcell = RUNS[run]["flowcell"]
+    return f'-c {config["basecall_config"][flowcell]}'
+
+
 def get_fast5_dir(wildcards):
     return RUNS[wildcards.run]["run_dir"]
 

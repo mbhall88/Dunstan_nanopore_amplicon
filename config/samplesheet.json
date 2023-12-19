@@ -159,7 +159,22 @@
                 "katG_2"
             ]
         },
-
+        "New_24_pnca_katg_subset": {
+            "Pool1": [
+                "rplC",
+                "embB_2",
+                "rv0678",
+                "fabG1_2",
+                "rpoB",
+                "embA",
+                "pncA_3",
+                "embB_3",
+                "fabG1_3",
+                "pncA_4",
+                "gyrA",
+                "katG_2"
+            ]
+        },
         "New_24_pnca_katg_lambda": {
             "Pool1": [
                 "tlyA_2",
@@ -239,6 +254,7 @@
             "barcode_kit": [
                 "EXP-NBD104"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1": {
                     "barcode": "NB09",
@@ -268,6 +284,7 @@
             "barcode_kit": [
                 "EXP-NBD104"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1-New_242": {
                     "barcode": "NB03",
@@ -292,6 +309,7 @@
             "barcode_kit": [
                 "EXP-NBD114"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1-20395165-New_24_pnca_katg": {
                     "barcode": "NB13",
@@ -347,13 +365,12 @@
             }
         },
 
-
-
         "20230818": {
             "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_20230818",
             "barcode_kit": [
                 "EXP-NBD114"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1-neat_lambda-New_24_pnca_katg_lambda": {
                     "barcode": "NB13",
@@ -393,13 +410,53 @@
 
             }
         },
+        "20231124": {
+            "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_20231124",
+            "barcode_kit": [
+                "EXP-NBD104"
+            ],
+            "flowcell": "R10",
+            "samples": {
+                "Pool1-Neat-Mtb-Spiked-Votintseva-New_24_pnca_katg": {
+                    "barcode": "NB07",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-Neat-Mtb-Spiked-An-Lambda-New_24_pnca_katg_lambda": {
+                    "barcode": "NB08",
+                    "strategy": "New_24_pnca_katg_lambda",
+                    "primers": "Pool1"
+                },
+                "Pool1-Neat-Mtb-Spiked-An-New_24_pnca_katg": {
+                    "barcode": "NB09",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-10^-1-Mtb-Spiked-An-New_24_pnca_katg": {
+                    "barcode": "NB10",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-10^-5-Mtb-Spiked-An-New_24_pnca_katg": {
+                    "barcode": "NB11",
+                    "strategy": "New_24_pnca_katg",
+                    "primers": "Pool1"
+                },
+                "Pool1-Neat-Mtb-Spiked-An-subset-New_24_pnca_katg_subset": {
+                    "barcode": "NB12",
+                    "strategy": "New_24_pnca_katg_subset",
+                    "primers": "Pool1"
+                }
 
+            }
+        },
 
         "20221003": {
             "run_dir": "/data/scratch/projects/punim1637/Nanopore/Data/Derrick_RPA_16_Primers_20221003",
             "barcode_kit": [
                 "EXP-NBD104"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool16-21121085-rpa": {
                     "barcode": "NB10",
@@ -423,6 +480,7 @@
             "barcode_kit": [
                 "EXP-NBD104"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1": {
                     "barcode": "NB01",
@@ -441,6 +499,7 @@
             "barcode_kit": [
                 "EXP-NBD114"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1": {
                     "barcode": "NB22",
@@ -465,6 +524,7 @@
                 "EXP-NBD104",
                 "EXP-NBD114"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1-21121085-pcr": {
                     "barcode": "NB01",
@@ -594,6 +654,7 @@
                 "EXP-NBD104",
                 "EXP-NBD114"
             ],
+            "flowcell": "R9",
             "samples": {
                 "Pool1-20395165-pcr": {
                     "barcode": "NB01",

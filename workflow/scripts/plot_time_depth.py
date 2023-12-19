@@ -2,12 +2,13 @@ import sys
 
 sys.stderr = open(snakemake.log[0], "w")
 
+import re
 from pathlib import Path
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import re
 import seaborn as sns
 
 plt.style.use("ggplot")
@@ -66,6 +67,9 @@ elif n_cells == 24:
 elif n_cells == 25:
     nrows = 5
     ncols = 5
+elif n_cells == 12:
+    nrows = 3
+    ncols = 4
 else:
     raise NotImplementedError(f"Don't know how many rows and cells for {n_cells} genes")
 

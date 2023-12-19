@@ -13,7 +13,6 @@ rule basecall:
     params:
         opt=" ".join(
             [
-                f"-c {config['basecall_config']}",
                 "--recursive",
                 "--calib_detect",
                 "--device cuda:all:100%",
@@ -21,15 +20,16 @@ rule basecall:
             ]
         ),
         barcode_kits=get_barcode_kits,
+        config=infer_basecall_config,
     resources:
         mem_mb=6 * GB,
         time="1d",
         partition="gpu-a100",
-        slurm="gres=gpu:2",
+        slurm="gres=gpu:1",
     container:
         CONTAINERS["guppy"]
     shell:
-        "guppy_basecaller {params.opt} {params.barcode_kits} -i {input.fast5_dir} -s {output.save_path} &> {log}"
+        "guppy_basecaller {params.opt} {params.config} {params.barcode_kits} -i {input.fast5_dir} -s {output.save_path} &> {log}"
 
 
 rule merge_fastq:
